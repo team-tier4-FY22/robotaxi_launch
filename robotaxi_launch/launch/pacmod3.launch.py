@@ -23,8 +23,10 @@ import yaml
 
 
 def on_output(event):
-    card_info = yaml.safe_load(event.text.decode())
-    if "Card 0" in card_info.keys():
+    # card_info = yaml.safe_load(event.text.decode())
+    # if "Card 0" in card_info.keys():
+    if "Card 0" in event.text.decode():
+        card_info = yaml.safe_load(event.text.decode())
         return IncludeLaunchDescription(
             FrontendLaunchDescriptionSource(
                 [FindPackageShare("pacmod3"), "/launch/pacmod3.launch.xml"]
